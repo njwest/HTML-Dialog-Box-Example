@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://fonts.cdnfonts.com/css/press-start-2p" rel="stylesheet">
+
+      <style>
+         @import url('https://fonts.cdnfonts.com/css/press-start-2p');
+
+         html {
+            font-family: 'Press Start 2P', monospace;
+            background-color: black;
+            cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABZklEQVR42q2XgQ7DIAhE9c/58y3LqkU4ODQ22VqtwOOodOvt4BBpHzDXT3yVjGxAQWsOgeiiEXwJgJwrSHltqf9wgViHOxIb6AwE3rhV4yWJwL5HRqI+c7wBUU2iIyP5f/XfeFy355pB2GdG/P3F3gHMgGCcQbiH9UnAwoQALlg0P8aPMxSY2WqImamWPgVoDfcFycsZzfUoCAIQtNeTklQSogCwvklJdhUtKRA5UzDv1rW7hyjTM6mm06TWFqSyVsd0AHQ7FfuALgkF8Inw2jGAoRx7QCEAoq8AOKWCxgUBxDpr/ChBZo3rB5AZotKIGZcAFcSiUCv2AZuNdpwBRpAQAElKAZj8BlL0WQOgbrYDcbJDVgCS3U0Au64z5wyg2qQiSAhAS6EgjvpDCFCF2ABgCqUBQoiNlw5bk8o8jS0IAch+ptUBQDAVIHyLvmaN7ooagFJjce6WuIk7/w0rQDsB7wBcPL75IE4wmOwhiAAAAABJRU5ErkJggg==), auto;
+         }
+         
+         .pixel-text {
+            font-family: 'Press Start 2P', monospace;
+         }
+
+         .bg-plain{
+            background-color: #f3f4f6 !important;
+         }
+
+         .hud{
+            position: fixed;
+            display: flex;
+            top: 0;
+            left: 0;
+         }
+
+         .title-text{
+            color: red;
+         }
+
+         .bg-helium{
+            background-color: #3a3547;
+         }
+
+         .dialogue-avatar{
+            height: 62%;
+         }
+
+         .dialogue-box{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 40%;
+            background-color: rgba(0, 0, 0, 0.9);;
+            border-radius: 10px;
+            border-style: double;
+            border-color: white;
+            border: 8px double white;
+         }
+
+         .dialogue-header-container{
+            margin-top: -20px;
+            margin-left: 10px;
+         }
+
+         .dialogue-header-text{
+            color: white;
+            background-color: black;
+            border-radius: 6px;
+         }
+
+         .dialogue-text{
+            color: white;
+         }
+
+         /* #player_one-health-bar{
+            width: 60%;
+            margin: 18px auto 18px auto;
+         }
+
+         .pixel-progress {
+            @include compact-rounded-corners();
+
+            width: 100%;
+            height: 48px;
+            margin: 4px;
+            color: $base-color;
+            background-color: $background-color;
+            -webkit-appearance: none;
+            appearance: none;
+
+            @mixin progress-style($color) {
+               &::-webkit-progress-bar {
+                  background-color: $background-color;
+               }
+               &::-webkit-progress-value {
+                  background-color: $color;
+               }
+               &::-moz-progress-bar {
+                  background-color: $color;
+               }
+               &::-ms-fill {
+                  background-color: $color;
+                  border: none;
+               }
+            }
+
+            @include progress-style($base-color);
+
+            &.is-rounded {
+               @include rounded-corners();
+            }
+            &.is-primary {
+               @include progress-style(map-get($primary-colors, "normal"));
+            }
+
+            &.is-success {
+               @include progress-style(map-get($success-colors, "normal"));
+            }
+
+            &.is-warning {
+               @include progress-style(map-get($warning-colors, "normal"));
+            }
+
+            &.is-error {
+               @include progress-style(map-get($error-colors, "normal"));
+            }
+
+            &.is-pattern {
+               &::-webkit-progress-value {
+                  background-color: $base-color;
+                  background-image: linear-gradient(
+                     45deg,
+                     $background-color 25%,
+                     transparent 25%,
+                     transparent 75%,
+                     $background-color 75%,
+                     $background-color
+                  ),
+                  linear-gradient(
+                     45deg,
+                     $background-color 25%,
+                     transparent 25%,
+                     transparent 75%,
+                     $background-color 75%,
+                     $background-color
+                  );
+                  background-position: 0 0, 10px 10px;
+                  background-size: 20px 20px;
+               }
+
+               &::-moz-progress-bar {
+                  background-color: $base-color;
+                  background-image: -moz-linear-gradient(
+                     45deg,
+                     $background-color 25%,
+                     transparent 25%,
+                     transparent 75%,
+                     $background-color 75%,
+                     $background-color
+                  ),
+                  -moz-linear-gradient(45deg, $background-color 25%, transparent 25%, transparent 75%, $background-color
+                        75%, $background-color);
+                  background-position: 0 0, 10px 10px;
+                  background-size: 20px 20px;
+               }
+
+               &::-ms-fill {
+                  background-color: $base-color;
+                  background-image: linear-gradient(
+                     45deg,
+                     $background-color 25%,
+                     transparent 25%,
+                     transparent 75%,
+                     $background-color 75%,
+                     $background-color
+                  ),
+                  linear-gradient(
+                     45deg,
+                     $background-color 25%,
+                     transparent 25%,
+                     transparent 75%,
+                     $background-color 75%,
+                     $background-color
+                  );
+                  background-position: 0 0, 10px 10px;
+                  background-size: 20px 20px;
+                  border: none;
+               }
+            }
+            } */
+
+      </style>
+   </head>
+   <body>
+      <div class="w-full h-full hud flex">
+         <!-- <progress id="player_one-health-bar" class="pixel-progress" value="0" max="100"></progress> -->
+         <div class="w-full">
+            <img class="m-auto top-0 h-auto lg:h-full" src="https://imageio.forbes.com/specials-images/imageserve/621a36994089ff2fddd5d84a/Valve-Corporation-Offices--Bellevue/960x0.jpg">
+          </div>
+         <div id="dialogue-box" class="dialogue-box with-title">
+           <div class="dialogue-header-container"><span id="dialogue-header" class="pixel-text dialogue-header-text text-lg md:text-2xl px-2 py-1">Mysterious Stranger</span></div>
+           <p id="dialogue-content" class="pixel-text py-2 px-6 text-md md:text-xl text-white">Hello, traveller.</p>
+         </div>
+       </div>      
+   </body>
+</html>
